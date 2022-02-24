@@ -36,7 +36,7 @@ struct timer event_timer_append(long sec, long nsec) {
 int event_wait(int *fds, int n_fds) {
   // 'select' modifies the 'fd_set', so make a copy and pass that
   fd_set copy = s;
-  int n_ready;
+  int n_ready = 0;
   if ((n_ready = select(FD_SETSIZE, &copy, NULL, NULL, NULL)) < 0) {
     exit(EXIT_FAILURE);
   } else if (n_ready == 0) {

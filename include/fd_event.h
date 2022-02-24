@@ -10,7 +10,10 @@
 #include <unistd.h>
 
 struct timer {
+  // File descriptor
   int fd;
+  // Cached copy of the timer's starting time,
+  // so that we can reset it
   struct itimerspec v;
 };
 
